@@ -2,3 +2,4 @@ node_modules
 dist
 src/token/*
 *lock.json
+*.DS_Store
