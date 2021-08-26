@@ -3,3 +3,4 @@ dist
 src/token/*
 *lock.json
 *.DS_Store
+.env
