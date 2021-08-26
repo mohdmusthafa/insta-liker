@@ -12,7 +12,7 @@
     "start": "node dist/app",
     "build:dashboard": "browserify src/modules/dashboard/client/script.js > src/modules/dashboard/static/bundle.js && uglifyjs src/modules/dashboard/static/bundle.js -c -m -o src/modules/dashboard/static/bundle.js",
     "build": "npm run build:dashboard && tsc -p .",
-    "dev": "nodemon src/app.ts --dashboard true",
+    "dev": "nodemon -r dotenv/config src/app.ts --dashboard true",
     "dev:dashboard": "nodemon --exec 'npm run build:dashboard' ./src/modules/dashboard/client/script.js"
   },
   "keywords": [],
@@ -26,6 +26,7 @@
     "@types/pubsub-js": "^1.8.2",
     "ansi-to-html": "^0.7.1",
     "browserify": "^17.0.0",
+    "dotenv": "^10.0.0",
     "nodemon": "^2.0.12",
     "ts-node": "^10.2.1",
     "uglify-js": "^3.14.1"

@@ -7,6 +7,8 @@ import { likeMedia, getMedias, login } from "./common";
 import { getCredentials } from "./helpers";
 import messages from "./common/messages";
 import initializeDashboard from "./helpers/initializeDashboard";
+import checkEnvironment from "./helpers/checkEnvironment";
+import getCredentialsFromEnv from "./helpers/getCredentialsFromEnv";
 
 prompt.start({ delimiter: colors.green(" >") });
 prompt.message = "";
@@ -19,7 +21,8 @@ nconf.use("memory");
   const JUST_NOW_TIME = new Date("2020-01-01").getTime();
   nconf.set("JUST_NOW_TIME", JUST_NOW_TIME);
 
-  const { username, password, sleep } = await getCredentials();
+  let { username, password, sleep } = checkEnvironment() ? getCredentialsFromEnv() : await getCredentials();
+
   nconf.set("sleep", sleep);
   nconf.set("username", username);
 
