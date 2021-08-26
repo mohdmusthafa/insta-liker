@@ -13,7 +13,8 @@
     "build:dashboard": "browserify src/modules/dashboard/client/script.js > src/modules/dashboard/static/bundle.js && uglifyjs src/modules/dashboard/static/bundle.js -c -m -o src/modules/dashboard/static/bundle.js",
     "build": "npm run build:dashboard && tsc -p .",
     "dev": "nodemon -r dotenv/config src/app.ts --dashboard true",
-    "dev:dashboard": "nodemon --exec 'npm run build:dashboard' ./src/modules/dashboard/client/script.js"
+    "dev:dashboard": "nodemon --exec 'npm run build:dashboard' ./src/modules/dashboard/client/script.js",
+    "copy:dashboard": "sh scripts/copy_dashboard.sh"
   },
   "keywords": [],
   "author": "",

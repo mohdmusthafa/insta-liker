@@ -10,6 +10,8 @@ COPY . .
 
 RUN npm run build
 
+RUN npm run copy:dashboard
+
 RUN rm -rf src/
 
 EXPOSE 3000
