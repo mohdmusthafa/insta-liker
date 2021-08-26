@@ -3,7 +3,7 @@ import PubSub from 'pubsub-js';
 import middlewares from './middlewares';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.DASHBOARD_PORT || 3000;
 
 //Initialize middlewares
 middlewares(app);
