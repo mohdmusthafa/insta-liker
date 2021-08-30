@@ -95,11 +95,12 @@ your host. In this example, we simply map port 80 of the host to
 port 3000 of the Docker (or whatever port was exposed in the Dockerfile):
 
 ```sh
-docker create -p 80:3000 --restart=always --env-file <path_to_env_file> --name=insta-liker absentauthor/insta-liker:latest
+docker create -p 80:3000 -t --restart=always --env-file <path_to_env_file> --name=insta-liker absentauthor/insta-liker:latest
 docker start insta-liker
 ```
 
 > Note: `--env-file=<path_to_env_file>` is required for application configuration.
+> `-t` flag for colorized logs
 
 Verify the deployment by navigating to your server address in
 your preferred browser.
