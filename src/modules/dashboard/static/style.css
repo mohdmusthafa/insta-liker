@@ -8,6 +8,7 @@
     --console-bg: #282C35;
     --text-white: #fffff0;
     --button-red: #de1738;
+    --reset-button: #FFD700;
 }
 
 .container {
@@ -52,8 +53,32 @@
     color:  var(--text-white);
 }
 
+.stop-server {
+    background-color: var(--reset-button);
+    color: var(--text-white);
+}
+
 .btn {
     border: 0;
     border-radius: 5px;
     padding: 5px;
+}
+
+.status-container {
+    position: absolute;
+    left: 0;
+    top: -20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.server-status-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: var(--reset-button);
+}
+
+#server-status-text {
+    margin-left: 10px;
 }

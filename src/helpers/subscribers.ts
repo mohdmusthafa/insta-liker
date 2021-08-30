@@ -8,7 +8,15 @@ const resetLogin = async (ig: any) => {
     })
 }
 
+const stopServer = async () => {
+    PubSub.subscribe('STOP_SERVER', async () => {
+        messages.graceExit()
+        process.exit(1);
+    })
+}
+
 export default function(ig: any){
     //Start Subscribing
-    resetLogin(ig)
+    resetLogin(ig);
+    stopServer();
 }

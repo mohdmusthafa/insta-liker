@@ -1,3 +1,5 @@
+window.require = require;
+
 const ansiToHtml = require("ansi-to-html");
 const convert = new ansiToHtml();
 const $ = require('jquery');
@@ -5,6 +7,16 @@ const axios = require('axios');
 
 var eventList = document.getElementById("logs-list");
 var evtSource = new EventSource("/logs");
+
+const serverStatusIcon = document.getElementsByClassName("server-status-icon")[0];
+const serverStatusText = document.getElementById("server-status-text");
+
+evtSource.onopen = () => {
+  console.log('connected')
+  serverStatusText.innerText = "Connected";
+  serverStatusIcon.style.backgroundColor = "#228b22";
+}
+
 evtSource.onmessage = function (e) {
   console.log("received event");
   console.log(e);
@@ -19,12 +31,20 @@ evtSource.onmessage = function (e) {
 };
 
 evtSource.onerror = function (e) {
-  console.log("EventSource failed.");
+  console.log(e);
+  serverStatusText.innerText = "Not Connected";
+  serverStatusIcon.style.backgroundColor = "#de1738";
 };
 
 console.log(evtSource);
 
 const resetLoginButton = document.getElementsByClassName("reset-login")[0];
+const stopServerButton = document.getElementsByClassName("stop-server")[0];
+
 resetLoginButton.addEventListener('click', async () => {
     await axios.delete('/api/login')
+})
+
+stopServerButton.addEventListener('click', async () => {
+  await axios.get('/api/stop-server')
 })

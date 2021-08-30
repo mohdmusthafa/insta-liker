@@ -8,4 +8,8 @@ router.route('/login')
         res.sendStatus(200);
     })
 
+router.get('/stop-server', (req, res) => {
+    PubSub.publish('STOP_SERVER');
+    res.sendStatus(200);
+})
 export default router;
