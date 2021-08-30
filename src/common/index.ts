@@ -24,7 +24,7 @@ export const likeMedia = async (medias: any, ig: any) => {
           try {
             const status = await like(media, ig);
             if (status) messages.likeSuccess(media.user.username);
-          } catch (error) {
+          } catch (error: any) {
             messages.error(error.message);
             messages.likeFailed();
             handleError(error);
@@ -46,7 +46,7 @@ export const getMedias = async (ig: any) => {
   return ig.feed
     .timeline()
     .items()
-    .catch((error: Error) => {
+    .catch((error: any) => {
       messages.error(error.message);
       handleError(error);
     });
@@ -55,7 +55,7 @@ export const getMedias = async (ig: any) => {
 export const login = async (username: string, password: string, ig: any) => {
   try {
     await ig.account.login(username, password)
-  } catch (error) {
+  } catch (error: any) {
     handleError(error)
   }
 }
