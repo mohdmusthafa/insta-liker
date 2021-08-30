@@ -99,8 +99,9 @@ docker create -p 80:3000 -t --restart=always --env-file <path_to_env_file> --nam
 docker start insta-liker
 ```
 
-> Note: `--env-file=<path_to_env_file>` is required for application configuration.
-> `-t` flag for colorized logs
+> Note: `--env-file=<path_to_env_file>` is required for application configuration.<br />
+> `-t` flag for colorized logs.<br />
+> [env sample]
 
 Verify the deployment by navigating to your server address in
 your preferred browser.
@@ -117,3 +118,4 @@ your preferred browser.
    [PubSub]: <https://github.com/mroderick/PubSubJS>
    [express]: <http://expressjs.com>
    [nconf]: <https://github.com/indexzero/nconf>
+   [env sample]: <https://gist.github.com/mohdmusthafa/44b2a79d880c9d15a093767de69b9fb9>
