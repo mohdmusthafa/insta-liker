@@ -46,7 +46,7 @@ export const getMedias = async (ig: any) => {
   return ig.feed
     .timeline()
     .items()
-    .catch((error: any) => {
+    .catch((error: Error) => {
       messages.error(error.message);
       handleError(error);
     });
