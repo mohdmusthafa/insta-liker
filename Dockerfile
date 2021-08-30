@@ -25,4 +25,4 @@ RUN rm -rf /usr/src/build
 
 EXPOSE 3000
 
-CMD ["npm", "start_docker"]
+CMD ["npm", "run", "start_docker"]
