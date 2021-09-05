@@ -82,3 +82,40 @@
 #server-status-text {
     margin-left: 10px;
 }
+
+@media only screen and (max-device-width: 480px) {
+    .logs-container {
+        width: 95vw;
+        height: 90vh;
+        margin-top: 7rem;
+    }
+
+    .btn {
+        padding: 15px;
+    }
+
+    .reset-login, .stop-server {
+        font-size: 24px;
+    }
+
+    .buttons-container {
+        top: -70px;
+    }
+
+    .status-container {
+        top: -50px;
+    }
+
+    .status-container > #server-status-text {
+        font-size: 35px;
+    }
+
+    .server-status-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .logs-list > li > span {
+        font-size: 30px;
+    }
+}
