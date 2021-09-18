@@ -43,9 +43,7 @@
 }
 
 .buttons-container {
-    position: absolute;
-    right: 0;
-    top: -30px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .reset-login {
@@ -65,12 +63,10 @@
 }
 
 .status-container {
-    position: absolute;
-    left: 0;
-    top: -20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Raleway', sans-serif;
 }
 .server-status-icon {
     width: 10px;
@@ -83,31 +79,61 @@
     margin-left: 10px;
 }
 
+.logs-header {
+    width: 80vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: -5%;
+}
+
+#status-bar {
+    flex-grow: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+.sleep-time {
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.text-input {
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+    padding: 2px 10px;
+    text-align: center;
+}
+
+.edit-config-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.config-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media only screen and (max-device-width: 480px) {
-    .logs-container {
-        width: 95vw;
-        height: 90vh;
-        margin-top: 7rem;
-    }
 
     .btn {
-        padding: 15px;
+        padding: 12px;
     }
 
     .reset-login, .stop-server {
-        font-size: 24px;
+        font-size: 18px;
     }
 
-    .buttons-container {
-        top: -70px;
-    }
-
-    .status-container {
-        top: -50px;
-    }
 
     .status-container > #server-status-text {
-        font-size: 35px;
+        font-size: 26px;
     }
 
     .server-status-icon {
@@ -117,5 +143,9 @@
 
     .logs-list > li > span {
         font-size: 30px;
+    }
+
+    .logs-container {
+        margin-top: 110px;
     }
 }

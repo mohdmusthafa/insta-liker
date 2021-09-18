@@ -5,7 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Railway@300;400&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -14,23 +14,41 @@
     <header></header>
 
     <main>
-        
       <div class="container">
         <div class="logs-container">
-          <div class="status-container">
-            <div class="server-status-icon"></div>
-            <span id="server-status-text">Connecting</span>
-          </div>
-            <div class="buttons-container">
-                <button class="stop-server btn">Stop Server</button>
-                <button class="reset-login btn">Reset Login</button>
+          <div class="logs-header">
+            <div class="status-container">
+              <div class="server-status-icon"></div>
+              <span id="server-status-text">Connecting</span>
             </div>
+            <div id="status-bar">
+              <div>
+                <input
+                  type="text"
+                  v-if="sleep_edit"
+                  v-model="sleep"
+                  class="sleep-input text-input"
+                  placeholder="Sleep delay in seconds"
+                  @focus="sleep_edit"
+                  @blur="saveSleep"
+                />
+
+                <h2 class="sleep-time" v-else @click="editSleep">Sleep {{ sleep }}s</h2>
+              </div>
+            </div>
+            <div class="buttons-container">
+              <button class="stop-server btn">Stop Server</button>
+              <button class="reset-login btn">Reset Login</button>
+            </div>
+          </div>
           <ul id="logs-list" class="logs-list"></ul>
         </div>
       </div>
     </main>
 
     <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="bundle.js"></script>
+    <script src="vue_app.js"></script>
   </body>
 </html>
