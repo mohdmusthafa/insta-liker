@@ -6,7 +6,7 @@ import { existsSync, readFileSync, writeFileSync, mkdirSync } from "fs";
 import { likeMedia, getMedias, login } from "./common";
 import { getCredentials } from "./helpers";
 import messages from "./common/messages";
-import initializeDashboard from "./helpers/initializeDashboard";
+import initializeModules from "./helpers/initializeModules";
 import checkEnvironment from "./helpers/checkEnvironment";
 import getCredentialsFromEnv from "./helpers/getCredentialsFromEnv";
 
@@ -59,8 +59,7 @@ nconf.use("memory");
     messages.successLogin();
   }
 
-  // //Start dashboard
-  initializeDashboard(ig);
+  initializeModules(ig);
 
   while (true) {
     let medias = await getMedias(ig)

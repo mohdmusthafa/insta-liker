@@ -5,6 +5,11 @@ const convert = new ansiToHtml();
 const $ = require('jquery');
 const axios = require('axios');
 
+
+const appConfigs = JSON.parse(localStorage.getItem('APP_CONFIG'));
+const API_URL = `http://${appConfigs.API_HOST}:${appConfigs.API_PORT}/api`;
+window.API_URL = API_URL
+
 var eventList = document.getElementById("logs-list");
 var evtSource = new EventSource("/logs");
 

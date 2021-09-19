@@ -27,6 +27,7 @@ const commonMessages = {
     savingToken: () => log(chalk.yellow("Saving token")),
     tokenExists: () => log(chalk.yellowBright("Token exist.")),
     noDashboard: () => log(chalk.blue("Dashboard disabled 💔, Run with --dashboard true for dashboard 💻 🚀")),
+    noApi: () => log(chalk.blueBright("API disabled 💀, Run with --api true for api access")),
     graceExit: () => log(chalk.whiteBright("Gracefully exiting... 🌞"))
 }
 

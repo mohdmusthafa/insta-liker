@@ -1,7 +1,7 @@
 const StatusBar = new Vue({
   el: "#status-bar",
   data: {
-      sleep: "10",
+      sleep: "0",
       sleep_edit: false
   },
   mounted() {
@@ -13,17 +13,38 @@ const StatusBar = new Vue({
   methods: {
     async getSleepTime() {
       if (!this.sleep_edit) {
-        const response = await axios.get('/api/sleep-delay');
-        this.sleep = response.data.delay
+        const response = await fetch(`${window.API_URL}/sleep-delay`);
+        const data = await response.json()
+        this.sleep = data.delay;
       }
     },
     async saveSleep() {
-      await axios.put(`/api/sleep-delay?delay=${this.sleep}`)
+      await fetch(`${window.API_URL}/sleep-delay?delay=${this.sleep}`, {
+        method: 'PUT',
+      })
       this.sleep_edit = false;
       this.getSleepTime()
     },
     editSleep() {
       this.sleep_edit = true;
+    }
+  }
+})
+
+const App = new Vue({
+  el: "#app",
+  mounted() {
+    this.getConfig()
+  },
+  methods: {
+    async getConfig() {
+      const response = await axios.get('/config');
+      const API_HOST = window.location.hostname;
+      const CONFIG = {
+        ...response.data,
+        API_HOST
+      }
+      localStorage.setItem("APP_CONFIG", JSON.stringify(CONFIG))
     }
   }
 })
