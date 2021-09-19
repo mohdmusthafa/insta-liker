@@ -22,7 +22,7 @@ export const likeMedia = async (medias: any, ig: any) => {
         if (checkIsJustNow(media)) {
           messages.foundJustNowPost();
           try {
-            const status = await like(media, ig);
+            // const status = await like(media, ig);
             if (status) messages.likeSuccess(media.user.username);
           } catch (error: any) {
             messages.error(error.message);
