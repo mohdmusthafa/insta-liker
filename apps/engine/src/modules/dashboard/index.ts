@@ -23,7 +23,16 @@ export default function () {
             res.write('data: ' + data + "\n\n");
         })
     })
-    app.listen(3000, () => {
+
+    app.get('/config', (req, res) => {
+        const responseBody = {
+            API_ENABLED: process.env.API_ENABLED,
+            API_PORT: process.env.API_PORT
+        }
+
+        res.json(responseBody);
+    })
+    app.listen(PORT, () => {
         console.log(`Open dashboard http://localhost:${PORT} 🔥`)
     })
 }

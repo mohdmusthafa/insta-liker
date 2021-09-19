@@ -2,7 +2,7 @@ import express from 'express';
 import PubSub from 'pubsub-js';
 import nconf from 'nconf';
 
-const router = express();
+const router = express.Router();
 
 router.route('/login')
     .delete((req, res) => {
@@ -27,5 +27,6 @@ router.route('/sleep-delay')
         nconf.set('sleep', likeDelay);
         res.status(200).end()
     })
+
 
 export default router;
